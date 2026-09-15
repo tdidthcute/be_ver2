@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- partial:index.partial.html -->
     <!-- SVG Spritesheet -->
     <div style="height: 0; width: 0; position: absolute; visibility: hidden">
       <svg xmlns="http://www.w3.org/2000/svg">
@@ -50,11 +49,12 @@
         </symbol>
       </svg>
     </div>
+
     <!-- App -->
     <div class="container">
       <div class="loading-init">
-        <div class="loading-init__header">đang tải đợi tí ạ</div>
-        <div class="loading-init__status">pháo đang đốt bé đợi tí nha</div>
+        <div class="loading-init__header">Đang tải, đợi tí ạ</div>
+        <div class="loading-init__status">Pháo đang đốt, đợi tí nha</div>
       </div>
       <div class="stage-container remove">
         <div class="canvas-container">
@@ -62,17 +62,17 @@
           <canvas id="main-canvas"> </canvas>
         </div>
         <div class="controls">
-          <button class="btn pause-btn" type="button" aria-label="暂停或继续">
+          <button class="btn pause-btn" type="button" aria-label="Tạm dừng hoặc Tiếp tục">
             <svg fill="white" width="24" height="24" aria-hidden="true">
               <use href="#icon-pause" xlink:href="#icon-pause"></use>
             </svg>
           </button>
-          <button class="btn sound-btn" type="button" aria-label="切换声音">
+          <button class="btn sound-btn" type="button" aria-label="Bật tắt âm thanh">
             <svg fill="white" width="24" height="24" aria-hidden="true">
               <use href="#icon-sound-off" xlink:href="#icon-sound-off"></use>
             </svg>
           </button>
-          <button class="btn settings-btn" type="button" aria-label="打开设置">
+          <button class="btn settings-btn" type="button" aria-label="Cài đặt">
             <svg fill="white" width="24" height="24" aria-hidden="true">
               <use href="#icon-settings" xlink:href="#icon-settings"></use>
             </svg>
@@ -83,82 +83,82 @@
             <button
               class="btn btn--bright close-menu-btn"
               type="button"
-              aria-label="关闭设置"
+              aria-label="Đóng cài đặt"
             >
               <svg fill="white" width="24" height="24" aria-hidden="true">
                 <use href="#icon-close" xlink:href="#icon-close"></use>
               </svg>
             </button>
-            <div class="menu__header">设置</div>
-            <div class="menu__subheader">若想了解更多信息 请点击任意标签</div>
+            <div class="menu__header">Cài đặt</div>
+            <div class="menu__subheader">Nhấp vào tùy chọn để tùy chỉnh</div>
             <form>
               <div class="form-option form-option--select">
-                <label class="shell-type-label"> 烟花类型 </label>
+                <label class="shell-type-label"> Loại pháo hoa </label>
                 <select class="shell-type"></select>
               </div>
               <div class="form-option form-option--select">
-                <label class="shell-size-label"> 烟花大小 </label>
+                <label class="shell-size-label"> Kích thước pháo </label>
                 <select class="shell-size"></select>
               </div>
               <div class="form-option form-option--select">
-                <label class="quality-ui-label"> 画质 </label>
+                <label class="quality-ui-label"> Chất lượng </label>
                 <select class="quality-ui"></select>
               </div>
               <div class="form-option form-option--select">
-                <label class="sky-lighting-label"> 照亮天空 </label>
+                <label class="sky-lighting-label"> Ánh sáng bầu trời </label>
                 <select class="sky-lighting"></select>
               </div>
               <div class="form-option form-option--select">
-                <label class="scaleFactor-label"> 缩放 </label>
+                <label class="scaleFactor-label"> Thu phóng </label>
                 <select class="scaleFactor"></select>
               </div>
               <div class="form-option form-option--stacked">
-                <label class="background-label"> 自定义背景 </label>
+                <label class="background-label"> Hình nền tùy chỉnh </label>
                 <div class="form-option__content">
                   <input
                     class="background-input"
                     type="text"
-                    placeholder="图片地址，或 linear-gradient(...)"
+                    placeholder="URL hình ảnh hoặc linear-gradient(...)"
                     autocomplete="off"
                     spellcheck="false"
                   />
                   <div class="form-option__actions">
                     <button class="background-apply-btn" type="button">
-                      应用
+                      Áp dụng
                     </button>
                     <button class="background-clear-btn" type="button">
-                      清除
+                      Xóa
                     </button>
                   </div>
                   <div class="background-status" aria-live="polite"></div>
                 </div>
               </div>
               <div class="form-option form-option--checkbox">
-                <label class="word-shell-label"> 文字烟花 </label>
+                <label class="word-shell-label"> Pháo hoa chữ </label>
                 <input class="word-shell" type="checkbox" />
               </div>
               <div class="form-option form-option--checkbox">
-                <label class="auto-launch-label"> 自动放烟花 </label>
+                <label class="auto-launch-label"> Tự động bắn </label>
                 <input class="auto-launch" type="checkbox" />
               </div>
               <div
                 class="form-option form-option--checkbox form-option--finale-mode"
               >
-                <label class="finale-mode-label"> 同时放更多的烟花 </label>
+                <label class="finale-mode-label"> Bắn liên tục nhiều pháo </label>
                 <input class="finale-mode" type="checkbox" />
               </div>
               <div class="form-option form-option--checkbox">
-                <label class="hide-controls-label"> 隐藏控制按钮 </label>
+                <label class="hide-controls-label"> Ẩn nút điều khiển </label>
                 <input class="hide-controls" type="checkbox" />
               </div>
               <div
                 class="form-option form-option--checkbox form-option--fullscreen"
               >
-                <label class="fullscreen-label"> 全屏 </label>
+                <label class="fullscreen-label"> Toàn màn hình </label>
                 <input class="fullscreen" type="checkbox" />
               </div>
               <div class="form-option form-option--checkbox">
-                <label class="long-exposure-label"> 保留烟花的火花 </label>
+                <label class="long-exposure-label"> Giữ tàn pháo hoa </label>
                 <input class="long-exposure" type="checkbox" />
               </div>
             </form>
@@ -180,12 +180,21 @@
         <div class="help-modal__dialog">
           <div class="help-modal__header"></div>
           <div class="help-modal__body"></div>
-          <button type="button" class="help-modal__close-btn">关闭</button>
+          <button type="button" class="help-modal__close-btn">Đóng</button>
         </div>
       </div>
     </div>
 
-    <!-- partial -->
+    <!-- Nhạc nền đặt ngay bên trong body -->
+    <audio
+      id="bgm"
+      src="./audio/nhacnen.mp3"
+      preload="auto"
+      loop
+      playsinline
+    ></audio>
+
+    <!-- Scripts thư viện và ứng dụng -->
     <script src="./js/lib/fscreen.js"></script>
     <script src="./js/lib/Stage.js"></script>
     <script src="./js/lib/MyMath.js"></script>
@@ -199,40 +208,33 @@
     <script src="./js/fireworks/simulation.js"></script>
     <script src="./js/fireworks/audio.js"></script>
     <script src="./js/fireworks/engine.js"></script>
+
+    <!-- Script mở khóa âm thanh đa nền tảng -->
     <script>
-(function unlockAudioOnMobile() {
-  function unlock() {
-    // 1. Mở khóa và phát nhạc nền thẻ <audio>
-    const bgm = document.getElementById("bgm");
-    if (bgm && bgm.paused) {
-      bgm.play().catch(function() {});
-    }
+      (function unlockAudioOnInteraction() {
+        function unlock() {
+          const bgm = document.getElementById("bgm");
+          if (bgm && bgm.paused) {
+            bgm.play().catch(function () {});
+          }
 
-    // 2. Mở khóa hệ thống âm thanh Web Audio API của pháo hoa
-    if (window.soundManager) {
-      soundManager.registerInteraction();
-      if (soundManager.ctx && soundManager.ctx.state === "suspended") {
-        soundManager.ctx.resume();
-      }
-    }
+          if (window.soundManager) {
+            soundManager.registerInteraction();
+            if (soundManager.ctx && soundManager.ctx.state === "suspended") {
+              soundManager.ctx.resume();
+            }
+          }
 
-    // Gỡ bỏ sự kiện sau cú chạm đầu tiên
-    document.removeEventListener("touchstart", unlock, true);
-    document.removeEventListener("touchend", unlock, true);
-    document.removeEventListener("click", unlock, true);
-  }
+          document.removeEventListener("touchstart", unlock, true);
+          document.removeEventListener("touchend", unlock, true);
+          document.removeEventListener("click", unlock, true);
+        }
 
-  // Lắng nghe cả chạm tay (mobile) và click chuột (desktop)
-  document.addEventListener("touchstart", unlock, true);
-  document.addEventListener("touchend", unlock, true);
-  document.addEventListener("click", unlock, true);
-})();
-</script>
+        document.addEventListener("touchstart", unlock, true);
+        document.addEventListener("touchend", unlock, true);
+        document.addEventListener("click", unlock, true);
+      })();
+    </script>
   </body>
+  <audio id="bgm" src="./audio/nhac.mp3" preload="auto" loop playsinline></audio>
 </html>
-<audio
-  id="bgm"
-  src="audio/Gói Con Tim Làm Quà (Bò Sữa Bay OST) - Mounter x Nguyễn Hùng   Official MV.mp3"
-  preload="auto"
-  loop playsinline
-></audio>
