@@ -199,11 +199,40 @@
     <script src="./js/fireworks/simulation.js"></script>
     <script src="./js/fireworks/audio.js"></script>
     <script src="./js/fireworks/engine.js"></script>
+    <script>
+(function unlockAudioOnMobile() {
+  function unlock() {
+    // 1. Mở khóa và phát nhạc nền thẻ <audio>
+    const bgm = document.getElementById("bgm");
+    if (bgm && bgm.paused) {
+      bgm.play().catch(function() {});
+    }
+
+    // 2. Mở khóa hệ thống âm thanh Web Audio API của pháo hoa
+    if (window.soundManager) {
+      soundManager.registerInteraction();
+      if (soundManager.ctx && soundManager.ctx.state === "suspended") {
+        soundManager.ctx.resume();
+      }
+    }
+
+    // Gỡ bỏ sự kiện sau cú chạm đầu tiên
+    document.removeEventListener("touchstart", unlock, true);
+    document.removeEventListener("touchend", unlock, true);
+    document.removeEventListener("click", unlock, true);
+  }
+
+  // Lắng nghe cả chạm tay (mobile) và click chuột (desktop)
+  document.addEventListener("touchstart", unlock, true);
+  document.addEventListener("touchend", unlock, true);
+  document.addEventListener("click", unlock, true);
+})();
+</script>
   </body>
 </html>
 <audio
   id="bgm"
   src="audio/Gói Con Tim Làm Quà (Bò Sữa Bay OST) - Mounter x Nguyễn Hùng   Official MV.mp3"
   preload="auto"
-  loop
+  loop playsinline
 ></audio>
