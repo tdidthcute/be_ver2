@@ -62,12 +62,20 @@
           <canvas id="main-canvas"> </canvas>
         </div>
         <div class="controls">
-          <button class="btn pause-btn" type="button" aria-label="Tạm dừng hoặc Tiếp tục">
+          <button
+            class="btn pause-btn"
+            type="button"
+            aria-label="Tạm dừng hoặc Tiếp tục"
+          >
             <svg fill="white" width="24" height="24" aria-hidden="true">
               <use href="#icon-pause" xlink:href="#icon-pause"></use>
             </svg>
           </button>
-          <button class="btn sound-btn" type="button" aria-label="Bật tắt âm thanh">
+          <button
+            class="btn sound-btn"
+            type="button"
+            aria-label="Bật tắt âm thanh"
+          >
             <svg fill="white" width="24" height="24" aria-hidden="true">
               <use href="#icon-sound-off" xlink:href="#icon-sound-off"></use>
             </svg>
@@ -144,7 +152,9 @@
               <div
                 class="form-option form-option--checkbox form-option--finale-mode"
               >
-                <label class="finale-mode-label"> Bắn liên tục nhiều pháo </label>
+                <label class="finale-mode-label">
+                  Bắn liên tục nhiều pháo
+                </label>
                 <input class="finale-mode" type="checkbox" />
               </div>
               <div class="form-option form-option--checkbox">
@@ -209,11 +219,18 @@
     <script src="./js/fireworks/audio.js"></script>
     <script src="./js/fireworks/engine.js"></script>
 
-    <!-- Script mở khóa âm thanh đa nền tảng -->
+    <audio
+      id="bg-music"
+      src="./audio/nhac.mp3"
+      preload="auto"
+      loop
+      playsinline
+    ></audio>
+
     <script>
       (function unlockAudioOnInteraction() {
         function unlock() {
-          const bgm = document.getElementById("bgm");
+          const bgm = document.getElementById("bg-music");
           if (bgm && bgm.paused) {
             bgm.play().catch(function () {});
           }
@@ -236,5 +253,4 @@
       })();
     </script>
   </body>
-  <audio id="bgm" src="./audio/Gói Con Tim Làm Quà (Bò Sữa Bay OST) - Mounter x Nguyễn Hùng Official MV.mp3" preload="auto" loop playsinline></audio>
 </html>
